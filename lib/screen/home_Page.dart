@@ -13,43 +13,43 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
   List<dynamic> popularvideos = [
-    {"rating": "4.9", "name": "Java lec 1", "image": "assets/images/java.png"},
-    {
-      "rating": "4.9",
-      "name": "dsjfsfdsf",
-      "image": "assets/images/database.jpg"
-    },
-    {"rating": "4.9", "name": "C++ lec 1", "image": "assets/images/cpp.png"},
+    // {"rating": "4.9", "name": "Java lec 1", "image": "assets/images/java.png"},
+    // {
+    //   "rating": "4.9",
+    //   "name": "dsjfsfdsf",
+    //   "image": "assets/images/database.jpg"
+    // },
+    // {"rating": "4.9", "name": "C++ lec 1", "image": "assets/images/cpp.png"},
   ];
 
   List<dynamic> popularbox = [
-    {"rating": "4.9", "name": "Java lec 1", "image": "assets/images/java.png"},
-    {
-      "rating": "4.9",
-      "name": "Database Lec 1",
-      "image": "assets/images/database.jpg"
-    },
-    {"rating": "4.9", "name": "C++ lec 1", "image": "assets/images/cpp.png"},
-    {"rating": "4.9", "name": "Java lec 2", "image": "assets/images/java.png"},
-    {
-      "rating": "4.9",
-      "name": "Database lec 2",
-      "image": "assets/images/database.jpg"
-    },
-    {"rating": "4.9", "name": "C++ lec2", "image": "assets/images/cpp.png"},
-    {"rating": "4.9", "name": "Java lec3", "image": "assets/images/java.png"},
-    {
-      "rating": "4.9",
-      "name": "Data base lec3 ",
-      "image": "assets/images/database.jpg"
-    },
-    {"rating": "4.9", "name": "C++ lec 3", "image": "assets/images/cpp.png"}, {"rating": "4.9", "name": "dsjfsfdsf", "image": "assets/images/java.png"},
-    {
-      "rating": "4.9",
-      "name": "dsjfsfdsf",
-      "image": "assets/images/database.jpg"
-    },
-    {"rating": "4.9", "name": "dsjfsfdsf", "image": "assets/images/cpp.png"},
+    // {"rating": "4.9", "name": "Java lec 1", "image": "assets/images/java.png"},
+    // {
+    //   "rating": "4.9",
+    //   "name": "Database Lec 1",
+    //   "image": "assets/images/database.jpg"
+    // },
+    // {"rating": "4.9", "name": "C++ lec 1", "image": "assets/images/cpp.png"},
+    // {"rating": "4.9", "name": "Java lec 2", "image": "assets/images/java.png"},
+    // {
+    //   "rating": "4.9",
+    //   "name": "Database lec 2",
+    //   "image": "assets/images/database.jpg"
+    // },
+    // {"rating": "4.9", "name": "C++ lec2", "image": "assets/images/cpp.png"},
+    // {"rating": "4.9", "name": "Java lec3", "image": "assets/images/java.png"},
+    // {
+    //   "rating": "4.9",
+    //   "name": "Data base lec3 ",
+    //   "image": "assets/images/database.jpg"
+    // },
+    // {"rating": "4.9", "name": "C++ lec 3", "image": "assets/images/cpp.png"}, {"rating": "4.9", "name": "dsjfsfdsf", "image": "assets/images/java.png"},
+    // {
+    //   "rating": "4.9",
+    //   "name": "dsjfsfdsf",
+    //   "image": "assets/images/database.jpg"
+    // },
+    // {"rating": "4.9", "name": "dsjfsfdsf", "image": "assets/images/cpp.png"},
   ];
   late ScrollController _scrollController;
   late TabController _tabController;
@@ -61,6 +61,7 @@ class _MyHomePageState extends State<MyHomePage>
           .then((s) {
         setState(() {
           popularvideos = json.decode(s);
+          popularbox=jsonDecode(s);
         });
       });
     } catch (e) {
@@ -221,7 +222,7 @@ class _MyHomePageState extends State<MyHomePage>
                                           Text(popularbox[index]["rating"]),
                                         ],
                                       ),
-                                      Text(popularbox[index]["name"]),
+                                      Text(popularbox[index]["name"],style: TextStyle(fontSize: 20),),
                                     ],
                                   ),
                                 ],
@@ -230,7 +231,7 @@ class _MyHomePageState extends State<MyHomePage>
                           ),
                         );
                       },
-                    ),3
+                    ),
                     ListView.builder(
                       controller: _scrollController,
                       itemCount: popularbox.length,
@@ -244,7 +245,7 @@ class _MyHomePageState extends State<MyHomePage>
                               boxShadow: [
                                 BoxShadow(
                                   blurRadius: 2,
-                                  offset: 2Offset(0, 0),
+                                  offset: Offset(0, 0),
                                   color: Colors.grey.withOpacity(0.2),
                                 )
                               ],
@@ -323,7 +324,7 @@ class _MyHomePageState extends State<MyHomePage>
                                     children: [
                                       Row(
                                         children: [
-                                          Icon(CupertinoIcons.star_fill, color: Colors.amberAccent),
+                                          Icon(CupertinoIcons.star_fill, color: Colors.yellowAccent),
                                           Text(popularbox[index]["rating"]),
                                         ],
                                       ),
